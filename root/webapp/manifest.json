@@ -1,0 +1,92 @@
+{
+    "_version": "1.1.0",
+    "sap.app": {
+        "_version": "1.1.0",
+        "id": "sapui5.tools.odatavalidator",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "ach": "CA-UI5-DOC",
+        "dataSources": {
+            "dataRemote": {
+                "uri": "",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "localUri": "localService/Model.xml"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "_version": "1.1.0",
+        "technology": "UI5",
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        },
+        "supportedThemes": [ "sap_belize" ]
+    },
+    "sap.ui5": {
+        "_version": "1.1.0",
+        "rootView": "sapui5.tools.odatavalidator.view.App",
+        "dependencies": {
+            "minUI5Version": "1.40",
+            "libs": {
+                "sap.m": { }
+            }
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "sapui5.tools.odatavalidator.i18n.i18n"
+                }
+            },
+            "": {
+                "dataSource": "dataRemote",
+                "settings": {
+                    "metadataUrlParams": {
+                        "sap-documentation": "heading"
+                    }
+                }
+            }
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "viewPath": "sapui5.tools.odatavalidator.view",
+                "controlId": "app",
+                "controlAggregation": "pages",
+                "transition": "slide",
+                "bypassed": {
+                    "target": "notFound"
+                }
+            },
+            "routes": [
+                {
+                    "pattern": "",
+                    "name": "appHome",
+                    "target": "home"
+                }
+            ],
+            "targets": {
+                "home": {
+                    "viewName": "Home",
+                    "viewLevel": 1
+                },
+                "notFound": {
+                    "viewName": "NotFound",
+                    "transition": "show",
+                    "viewPath": "sapui5.tools.odatavalidator.view"
+                }
+            }
+        }
+    }
+}

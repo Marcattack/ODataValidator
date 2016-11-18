@@ -1,0 +1,56 @@
+<mvc:View
+  controllerName="sapui5.tools.odatavalidator.controller.Home"
+  xmlns="sap.m"
+  xmlns:mvc="sap.ui.core.mvc">
+  <Page
+    id="homePageId"
+    class="sapUiResponsiveContentPadding">
+
+    <customHeader>
+			<Toolbar>
+        <ToolbarSpacer/>
+				<Title
+          text="{i18n>home.title}"
+          level="H2"/>
+				<ToolbarSpacer/>
+				<!--
+        TODO : Implémenter la méthode avec un MessagePopover
+        Button
+          icon="sap-icon://hint"
+          press="onAboutPressed"/>
+          -->
+			</Toolbar>
+		</customHeader>
+
+    <content>
+      <Label
+        text="{i18n>home.labelRequest}"/>
+      <Input
+        placeholder="/Commande('4500000212')"
+        value="{homeViewModel>/request}"/>
+      <Button
+        press="onButtonReadPressed"
+        text="{i18n>home.buttonReadMethod}"
+        type="Accept"/>
+        
+      <Label
+        text="{i18n>home.labelRequestResponse}"/>
+      <TextArea
+        growing="true"
+        value="{homeViewModel>/response}"
+        width="100%"/>
+    </content>
+      
+    <footer>
+      <Toolbar>
+        <ToolbarSpacer/>
+        <Label
+          text="{homeViewModel>/version}"/>
+        <ToolbarSpacer/>
+        <Label
+          text="{homeViewModel>/language}"/>
+      </Toolbar>
+    </footer>
+
+  </Page>
+</mvc:View>
