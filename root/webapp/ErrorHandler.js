@@ -54,7 +54,7 @@ sap.ui.define([
          */
         _showMetadataError: function (sDetails) {
             MessageBox.error(
-                "TODO: ErrorMetadata à gérer !",
+                "TODO: ErrorMetadata to manage !",
                 {
                     id: "metadataErrorMessageBox",
                     details: sDetails,
@@ -89,7 +89,7 @@ sap.ui.define([
                 return;
             }
 
-            // TODO : ajouter les cas au fur et à mesure.
+            // TODO : add case
             if (oResponseText.error.code === "/IWBEP/CM_MGW_RT/022" ||
                 oResponseText.error.code.substring(0, 9) === "ZMOBIMAT/") {
                 var sBusinessException = this._extractErrorDetails(oResponseText);
