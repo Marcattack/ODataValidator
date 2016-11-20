@@ -28,10 +28,16 @@
       <Input
         placeholder="/Commande('4500000212')"
         value="{homeViewModel>/request}"/>
+      <!-- Read -->
       <Button
         press="onButtonReadPressed"
         text="{i18n>home.buttonReadMethod}"
         type="Accept"/>
+      <!-- Remove -->
+      <Button
+        press="onButtonRemovePressed"
+        text="{i18n>home.buttonRemoveMethod}"
+        type="Reject"/>
         
       <Label
         text="{i18n>home.labelRequestResponse}"/>

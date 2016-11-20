@@ -97,6 +97,36 @@ sap.ui.define([
          * @param {sap.ui.base.Event} oEvent
          * @public
          */
+        onButtonRemovePressed: function (oEvent) {
+            var that = this;
+            var oHomeView = this.getView();
+            var oHomeViewModel = this.getModel("homeViewModel");
+            var sRequest = oHomeViewModel.getProperty("/request");
+
+            oHomeView.setBusy(true);
+            this.getModel().remove(sRequest, {
+                async: true,
+                success: function(oData, oResponse) {
+                    that._showMessageStrip(true);
+                    oHomeViewModel.setProperty("/response", JSON.stringify(oResponse));
+
+                    oHomeView.setBusy(false);
+                },
+                error: function(oError) {
+                    that._showMessageStrip(false);
+                    oHomeViewModel.setProperty("/response", JSON.stringify(oError));
+
+                    oHomeView.setBusy(false);
+                }
+            });
+        },
+
+        /**
+         * TODO : comment
+         * @function
+         * @param {sap.ui.base.Event} oEvent
+         * @public
+         */
         onButtonReadPressed: function(oEvent) {
             var that = this;
             var oHomeView = this.getView();
