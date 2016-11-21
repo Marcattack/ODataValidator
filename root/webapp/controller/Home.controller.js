@@ -28,7 +28,8 @@ sap.ui.define([
                 response: "",
                 query: "",
                 jsonText: "",
-                selectedTabKey: "Read"
+                selectedTabKey: "Read",
+                uri: ""
             });
             this.setModel(oViewModel, "homeViewModel");
         },
@@ -155,6 +156,10 @@ sap.ui.define([
             }
         },
 
+        ontest: function(oEvent) {
+            var app = sap.app;
+        },
+
         /* =========================================================== */
         /* Méthodes internes                                           */
         /* =========================================================== */
@@ -210,6 +215,9 @@ sap.ui.define([
             var oHomeViewModel = this.getModel("homeViewModel");
             var sQuery = oHomeViewModel.getProperty("/query");
             var that = this;
+            
+            
+            sap.ui.getCore().getComponent("componentId")._mManifestModels[""].sServiceUrl = oHomeViewModel.getProperty("/uri")
 
             oHomeView.setBusy(true);
             this.getModel().read(sQuery, {

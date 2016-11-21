@@ -8,6 +8,9 @@
     <Input
       placeholder="{i18n>home.inputPlaceHolderQuery}"
       value="{homeViewModel>/query}"/>
+    <Input
+      placeholder="uri"
+      value="{homeViewModel>/uri}"/>
     <Button
       press="onButtonExecutePressed"
       text="{i18n>home.buttonExecute}"

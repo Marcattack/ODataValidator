@@ -20,6 +20,10 @@
           icon="sap-icon://hint"
           press="onAboutPressed"/>
           -->
+        <Button
+          press="ontest"
+          text="{i18n>home.buttonExecute}"
+          type="Accept"/>
 			</Toolbar>
 		</customHeader>
 
