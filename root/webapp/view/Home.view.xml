@@ -23,49 +23,136 @@
 		</customHeader>
 
     <content>
-      <Text
-        text="{i18n>home.radioButtonTitle}"/>
-      <RadioButtonGroup
-        columns="5"
-        class="sapUiMediumMarginBottom"
-        select="onSelectedItem">
-        <buttons>
-          <RadioButton id="radioButtonReadId" text="{i18n>home.radioButtonRead}"/>
-          <RadioButton id="radioButtonCreateId" text="{i18n>home.radioButtonCreate}"/>
-          <RadioButton id="radioButtonUpdateId" text="{i18n>home.radioButtonUpdate}"/>
-          <RadioButton id="radioButtonRemoveId" text="{i18n>home.radioButtonRemove}"/>
-        </buttons>
-      </RadioButtonGroup>
+      <IconTabBar
+				id="iconTabBar"
+				class="sapUiResponsiveContentPadding"
+        select="onSelectedTab"
+        selectedKey="{homeViewModel>/selectedTabKey}"
+        expandable="false">
+        <items>
+          <!-- Read -->
+          <IconTabFilter
+            id="iconTabBarFilterRead"
+					  text="{i18n>home.iconTabFilterRead}"
+            key="Read">
+            <Panel
+              headerText="{i18n>home.panelHeaderTextParameters}">
+              <Label
+                text="{i18n>home.labelQuery}"/>
+              <Input
+                placeholder="{i18n>home.inputPlaceHolderQuery}"
+                value="{homeViewModel>/query}"/>
+              <Button
+                press="onButtonExecutePressed"
+                text="{i18n>home.buttonExecute}"
+                type="Accept"/>
+            </Panel>
 
-      <Label
-        text="{i18n>home.labelQuery}"/>
-      <Input
-        placeholder="{i18n>home.inputPlaceHolderQuery}"
-        value="{homeViewModel>/query}"/>
+            <Panel
+              headerText="{i18n>home.panelHeaderTextResponseQuery}">
+              <TextArea
+                growing="true"
+                value="{homeViewModel>/response}"
+                width="100%"/>
+            </Panel>
+          </IconTabFilter>
 
-      <Label
-        id="labelJSON"
-        text="{i18n>home.labelJSON}"/>
-      <TextArea
-        id="textAreaJSON"
-        growing="true"
-        value="{homeViewModel>/jsonText}"
-        placeholder="{i18n>home.textAreaPlaceHolderJSONText}"
-        width="100%"/>
+          <!-- Create -->
+          <IconTabFilter
+            id="iconTabBarFilterCreate"
+					  text="{i18n>home.iconTabFilterCreate}"
+            key="Create">
+            <Panel
+              headerText="{i18n>home.panelHeaderTextParameters}">
+              <Label
+                text="{i18n>home.labelQuery}"/>
+              <Input
+                placeholder="{i18n>home.inputPlaceHolderQuery}"
+                value="{homeViewModel>/query}"/>
+              <Label
+                text="{i18n>home.labelJSON}"/>
+              <TextArea
+                growing="true"
+                value="{homeViewModel>/jsonText}"
+                placeholder="{i18n>home.textAreaPlaceHolderJSONText}"
+                width="100%"/>
+              <Button
+                press="onButtonExecutePressed"
+                text="{i18n>home.buttonExecute}"
+                type="Accept"/>
+            </Panel>
 
-      <Button
-        press="onButtonExecutePressed"
-        text="{i18n>home.buttonExecute}"
-        type="Accept"/>
-        
-      <Label
-        id="labelResponseQuery"
-        text="{i18n>home.labelResponseQuery}"/>
-      <TextArea
-        id="textAreaResponseQuery"
-        growing="true"
-        value="{homeViewModel>/response}"
-        width="100%"/>
+            <Panel
+              headerText="{i18n>home.panelHeaderTextResponseQuery}">
+              <TextArea
+                growing="true"
+                value="{homeViewModel>/response}"
+                width="100%"/>
+            </Panel>
+          </IconTabFilter>
+
+          <!-- Update -->
+          <IconTabFilter
+            id="iconTabBarFilterUpdate"
+					  text="{i18n>home.iconTabFilterUpdate}"
+            key="Update">
+            <Panel
+              headerText="{i18n>home.panelHeaderTextParameters}">
+              <Label
+                text="{i18n>home.labelQuery}"/>
+              <Input
+                placeholder="{i18n>home.inputPlaceHolderQuery}"
+                value="{homeViewModel>/query}"/>
+              <Label
+                text="{i18n>home.labelJSON}"/>
+              <TextArea
+                growing="true"
+                value="{homeViewModel>/jsonText}"
+                placeholder="{i18n>home.textAreaPlaceHolderJSONText}"
+                width="100%"/>
+              <Button
+                press="onButtonExecutePressed"
+                text="{i18n>home.buttonExecute}"
+                type="Accept"/>
+            </Panel>
+
+            <Panel
+              headerText="{i18n>home.panelHeaderTextResponseQuery}">
+              <TextArea
+                growing="true"
+                value="{homeViewModel>/response}"
+                width="100%"/>
+            </Panel>
+          </IconTabFilter>
+
+          <!-- Remove -->
+          <IconTabFilter
+            id="iconTabBarFilterRemove"
+					  text="{i18n>home.iconTabFilterRemove}"
+            key="Remove">
+            <Panel
+              headerText="{i18n>home.panelHeaderTextParameters}">
+              <Label
+                text="{i18n>home.labelQuery}"/>
+              <Input
+                placeholder="{i18n>home.inputPlaceHolderQuery}"
+                value="{homeViewModel>/query}"/>
+              <Button
+                press="onButtonExecutePressed"
+                text="{i18n>home.buttonExecute}"
+                type="Accept"/>
+            </Panel>
+
+            <Panel
+              headerText="{i18n>home.panelHeaderTextResponseQuery}">
+              <TextArea
+                growing="true"
+                value="{homeViewModel>/response}"
+                width="100%"/>
+            </Panel>
+          </IconTabFilter>
+        </items>
+      </IconTabBar>
     </content>
       
     <footer>

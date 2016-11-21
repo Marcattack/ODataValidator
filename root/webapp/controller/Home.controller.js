@@ -3,7 +3,7 @@ sap.ui.define([
     "sap/ui/model/json/JSONModel"
 ], function(BaseController, JSONModel) {
     "use strict";
-    var aMethodType = ["Read", "Create", "Update", "Remove"];
+    var _aMethodType = ["Read", "Create", "Update", "Remove"];
 
     return BaseController.extend("sapui5.tools.odatavalidator.controller.Home", {
 
@@ -27,8 +27,8 @@ sap.ui.define([
                 language: sap.ui.getCore().getConfiguration().getLanguage(),
                 response: "",
                 query: "",
-                requestType: 0,
-                jsonText: ""
+                jsonText: "",
+                selectedTabKey: "Read"
             });
             this.setModel(oViewModel, "homeViewModel");
         },
@@ -40,6 +40,20 @@ sap.ui.define([
          * @private
          */
         _onRouteMatched: function(oEvent) {
+            var oArgs = oEvent.getParameter("arguments");
+            //var oView = this.getView();
+            var oQuery = oArgs["?query"];
+
+            if (oQuery && _aMethodType.indexOf(oQuery.tab) > -1) {
+                var oHomeViewModel = this.getModel("homeViewModel");
+                oHomeViewModel.setProperty("/selectedTabKey", oQuery.tab);
+            } else {
+                this.getRouter().navTo("appHome", {
+                    query: {
+                        tab: _aMethodType[0]
+                    }
+                }, true /* pas d'historique */);
+            }
         },
 
         /**
@@ -83,14 +97,18 @@ sap.ui.define([
         /* =========================================================== */
         
         /**
-         * TODO : comment
+         * Sélectionne l'onglet en fonction du paramètre passé
+         * à la requête.
          * @function
-         * @param {sap.ui.base.Event} oEvent
+         * @param {sap.ui.base.Event} 
          * @public
          */
-        onSelectedItem: function(oEvent) {
-            var iIndex = oEvent.getParameters().selectedIndex;
-            this.getModel("homeViewModel").setProperty("/requestType", iIndex);
+        onSelectedTab: function (oEvent) {
+            this.getRouter().navTo("appHome", {
+                query: {
+                    tab: oEvent.getParameter("selectedKey")
+                }
+            }, true /* sans historique */);
         },
 
         /**
