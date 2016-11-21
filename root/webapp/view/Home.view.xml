@@ -1,6 +1,7 @@
 <mvc:View
   controllerName="sapui5.tools.odatavalidator.controller.Home"
   xmlns="sap.m"
+  xmlns:core="sap.ui.core"
   xmlns:mvc="sap.ui.core.mvc">
   <Page
     id="homePageId"
@@ -35,26 +36,9 @@
             id="iconTabBarFilterRead"
 					  text="{i18n>home.iconTabFilterRead}"
             key="Read">
-            <Panel
-              headerText="{i18n>home.panelHeaderTextParameters}">
-              <Label
-                text="{i18n>home.labelQuery}"/>
-              <Input
-                placeholder="{i18n>home.inputPlaceHolderQuery}"
-                value="{homeViewModel>/query}"/>
-              <Button
-                press="onButtonExecutePressed"
-                text="{i18n>home.buttonExecute}"
-                type="Accept"/>
-            </Panel>
-
-            <Panel
-              headerText="{i18n>home.panelHeaderTextResponseQuery}">
-              <TextArea
-                growing="true"
-                value="{homeViewModel>/response}"
-                width="100%"/>
-            </Panel>
+            <core:Fragment
+              fragmentName="sapui5.tools.odatavalidator.view.fragment.ReadTab"
+              type="XML"/>
           </IconTabFilter>
 
           <!-- Create -->
@@ -62,33 +46,9 @@
             id="iconTabBarFilterCreate"
 					  text="{i18n>home.iconTabFilterCreate}"
             key="Create">
-            <Panel
-              headerText="{i18n>home.panelHeaderTextParameters}">
-              <Label
-                text="{i18n>home.labelQuery}"/>
-              <Input
-                placeholder="{i18n>home.inputPlaceHolderQuery}"
-                value="{homeViewModel>/query}"/>
-              <Label
-                text="{i18n>home.labelJSON}"/>
-              <TextArea
-                growing="true"
-                value="{homeViewModel>/jsonText}"
-                placeholder="{i18n>home.textAreaPlaceHolderJSONText}"
-                width="100%"/>
-              <Button
-                press="onButtonExecutePressed"
-                text="{i18n>home.buttonExecute}"
-                type="Accept"/>
-            </Panel>
-
-            <Panel
-              headerText="{i18n>home.panelHeaderTextResponseQuery}">
-              <TextArea
-                growing="true"
-                value="{homeViewModel>/response}"
-                width="100%"/>
-            </Panel>
+            <core:Fragment
+              fragmentName="sapui5.tools.odatavalidator.view.fragment.CreateTab"
+              type="XML"/>
           </IconTabFilter>
 
           <!-- Update -->
@@ -96,33 +56,9 @@
             id="iconTabBarFilterUpdate"
 					  text="{i18n>home.iconTabFilterUpdate}"
             key="Update">
-            <Panel
-              headerText="{i18n>home.panelHeaderTextParameters}">
-              <Label
-                text="{i18n>home.labelQuery}"/>
-              <Input
-                placeholder="{i18n>home.inputPlaceHolderQuery}"
-                value="{homeViewModel>/query}"/>
-              <Label
-                text="{i18n>home.labelJSON}"/>
-              <TextArea
-                growing="true"
-                value="{homeViewModel>/jsonText}"
-                placeholder="{i18n>home.textAreaPlaceHolderJSONText}"
-                width="100%"/>
-              <Button
-                press="onButtonExecutePressed"
-                text="{i18n>home.buttonExecute}"
-                type="Accept"/>
-            </Panel>
-
-            <Panel
-              headerText="{i18n>home.panelHeaderTextResponseQuery}">
-              <TextArea
-                growing="true"
-                value="{homeViewModel>/response}"
-                width="100%"/>
-            </Panel>
+            <core:Fragment
+              fragmentName="sapui5.tools.odatavalidator.view.fragment.UpdateTab"
+              type="XML"/>
           </IconTabFilter>
 
           <!-- Remove -->
@@ -130,26 +66,9 @@
             id="iconTabBarFilterRemove"
 					  text="{i18n>home.iconTabFilterRemove}"
             key="Remove">
-            <Panel
-              headerText="{i18n>home.panelHeaderTextParameters}">
-              <Label
-                text="{i18n>home.labelQuery}"/>
-              <Input
-                placeholder="{i18n>home.inputPlaceHolderQuery}"
-                value="{homeViewModel>/query}"/>
-              <Button
-                press="onButtonExecutePressed"
-                text="{i18n>home.buttonExecute}"
-                type="Accept"/>
-            </Panel>
-
-            <Panel
-              headerText="{i18n>home.panelHeaderTextResponseQuery}">
-              <TextArea
-                growing="true"
-                value="{homeViewModel>/response}"
-                width="100%"/>
-            </Panel>
+            <core:Fragment
+              fragmentName="sapui5.tools.odatavalidator.view.fragment.RemoveTab"
+              type="XML"/>
           </IconTabFilter>
         </items>
       </IconTabBar>
