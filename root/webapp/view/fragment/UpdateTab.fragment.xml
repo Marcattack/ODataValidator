@@ -8,6 +8,13 @@
     <Input
       placeholder="{i18n>home.inputPlaceHolderQuery}"
       value="{homeViewModel>/query}"/>
+    <Label
+      text="{i18n>home.labelJSON}"/>
+    <TextArea
+      growing="true"
+      value="{homeViewModel>/jsonText}"
+      placeholder="{i18n>home.textAreaPlaceHolderJSONText}"
+      width="100%"/>
     <Button
       press="onButtonExecutePressed"
       text="{i18n>home.buttonExecute}"
