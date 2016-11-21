@@ -130,22 +130,22 @@ sap.ui.define([
          * @public
          */
         onButtonExecutePressed: function(oEvent) {
-            var iRequestType = this.getModel("homeViewModel").getProperty("/requestType"); 
+            var sTabKey = this.getModel("homeViewModel").getProperty("/selectedTabKey"); 
             
-            switch (iRequestType) {
-                case 0: // Read
+            switch (sTabKey) {
+                case "Read":
                     this._executeReadMethod();
                     break;
 
-                case 1: // Create
+                case "Create":
                     this._executeCreateMethod();
                     break;
 
-                case 2: // Update
+                case "Update":
                     this._executeUpdateMethod();
                     break;
 
-                case 3: // Remove
+                case "Remove": 
                     this._executeRemoveMethod();
                     break;
 
