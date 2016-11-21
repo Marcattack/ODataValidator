@@ -23,19 +23,46 @@
 		</customHeader>
 
     <content>
+      <Text
+        text="{i18n>home.radioButtonTitle}"/>
+      <RadioButtonGroup
+        columns="5"
+        class="sapUiMediumMarginBottom"
+        select="onSelectedItem">
+        <buttons>
+          <RadioButton id="radioButtonReadId" text="{i18n>home.radioButtonRead}"/>
+          <RadioButton id="radioButtonCreateId" text="{i18n>home.radioButtonCreate}"/>
+          <RadioButton id="radioButtonUpdateId" text="{i18n>home.radioButtonUpdate}"/>
+          <RadioButton id="radioButtonRemoveId" text="{i18n>home.radioButtonRemove}"/>
+        </buttons>
+      </RadioButtonGroup>
+
       <Label
-        text="{i18n>home.labelRequest}"/>
+        text="{i18n>home.labelQuery}"/>
       <Input
-        placeholder="/Commande('4500000212')"
-        value="{homeViewModel>/request}"/>
+        placeholder="{i18n>home.inputPlaceHolderQuery}"
+        value="{homeViewModel>/query}"/>
+
+      <Label
+        id="labelJSON"
+        text="{i18n>home.labelJSON}"/>
+      <TextArea
+        id="textAreaJSON"
+        growing="true"
+        value="{homeViewModel>/jsonText}"
+        placeholder="{i18n>home.textAreaPlaceHolderJSONText}"
+        width="100%"/>
+
       <Button
-        press="onButtonReadPressed"
-        text="{i18n>home.buttonReadMethod}"
+        press="onButtonExecutePressed"
+        text="{i18n>home.buttonExecute}"
         type="Accept"/>
         
       <Label
-        text="{i18n>home.labelRequestResponse}"/>
+        id="labelResponseQuery"
+        text="{i18n>home.labelResponseQuery}"/>
       <TextArea
+        id="textAreaResponseQuery"
         growing="true"
         value="{homeViewModel>/response}"
         width="100%"/>
