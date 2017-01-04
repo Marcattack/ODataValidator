@@ -130,6 +130,7 @@ sap.ui.define([
          * @param {sap.ui.base.Event} oEvent
          * @public
          */
+<<<<<<< HEAD
         onButtonRemovePressed: function (oEvent) {
             var that = this;
             var oHomeView = this.getView();
@@ -142,16 +143,36 @@ sap.ui.define([
                 success: function(oData, oResponse) {
                     that._showMessageStrip(true);
                     oHomeViewModel.setProperty("/response", JSON.stringify(oResponse));
+=======
+        onButtonExecutePressed: function(oEvent) {
+            var sTabKey = this.getModel("homeViewModel").getProperty("/selectedTabKey"); 
+            
+            switch (sTabKey) {
+                case "Read":
+                    this._executeReadMethod();
+                    break;
 
-                    oHomeView.setBusy(false);
-                },
-                error: function(oError) {
-                    that._showMessageStrip(false);
-                    oHomeViewModel.setProperty("/response", JSON.stringify(oError));
+                case "Create":
+                    this._executeCreateMethod();
+                    break;
+>>>>>>> 068dee075c866fa3b869108bc2d8d14e0f36f702
 
-                    oHomeView.setBusy(false);
-                }
-            });
+                case "Update":
+                    this._executeUpdateMethod();
+                    break;
+
+                case "Remove": 
+                    this._executeRemoveMethod();
+                    break;
+
+                default:
+                    // TODO : not supported exception
+                    break;
+            }
+        },
+
+        ontest: function(oEvent) {
+            var app = sap.app;
         },
 
         /**

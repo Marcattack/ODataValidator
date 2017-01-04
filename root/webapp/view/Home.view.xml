@@ -28,6 +28,7 @@
 		</customHeader>
 
     <content>
+<<<<<<< HEAD
       <Label
         text="{i18n>home.labelRequest}"/>
       <Input
@@ -51,6 +52,8 @@
         value="{homeViewModel>/response}"
         width="100%"/>
 
+=======
+>>>>>>> 068dee075c866fa3b869108bc2d8d14e0f36f702
       <IconTabBar
 				id="iconTabBar"
 				class="sapUiResponsiveContentPadding"
@@ -99,7 +102,10 @@
           </IconTabFilter>
         </items>
       </IconTabBar>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 068dee075c866fa3b869108bc2d8d14e0f36f702
     </content>
       
     <footer>

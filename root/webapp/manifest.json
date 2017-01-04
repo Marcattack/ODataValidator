@@ -13,7 +13,11 @@
         "ach": "CA-UI5-DOC",
         "dataSources": {
             "dataRemote": {
+<<<<<<< HEAD
                 "uri": "http://services.odata.org/V2/Northwind/Northwind.svc",
+=======
+                "uri": "http://services.odata.org/V2/Northwind/Northwind.svc/",
+>>>>>>> 068dee075c866fa3b869108bc2d8d14e0f36f702
                 "type": "OData",
                 "settings": {
                     "odataVersion": "2.0",
