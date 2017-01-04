@@ -1,0 +1,27 @@
+<core:FragmentDefinition
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core">
+  <Panel
+    headerText="{i18n>home.panelHeaderTextParameters}">
+    <Label
+      text="{i18n>home.labelQuery}"/>
+    <Input
+      placeholder="{i18n>home.inputPlaceHolderQuery}"
+      value="{homeViewModel>/query}"/>
+    <Input
+      placeholder="uri"
+      value="{homeViewModel>/uri}"/>
+    <Button
+      press="onButtonExecutePressed"
+      text="{i18n>home.buttonExecute}"
+      type="Accept"/>
+  </Panel>
+
+  <Panel
+    headerText="{i18n>home.panelHeaderTextResponseQuery}">
+    <TextArea
+      growing="true"
+      value="{homeViewModel>/response}"
+      width="100%"/>
+  </Panel>
+</core:FragmentDefinition>

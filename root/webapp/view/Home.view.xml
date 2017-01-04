@@ -1,6 +1,7 @@
 <mvc:View
   controllerName="sapui5.tools.odatavalidator.controller.Home"
   xmlns="sap.m"
+  xmlns:core="sap.ui.core"
   xmlns:mvc="sap.ui.core.mvc">
   <Page
     id="homePageId"
@@ -19,6 +20,10 @@
           icon="sap-icon://hint"
           press="onAboutPressed"/>
           -->
+        <Button
+          press="ontest"
+          text="{i18n>home.buttonExecute}"
+          type="Accept"/>
 			</Toolbar>
 		</customHeader>
 
@@ -45,6 +50,56 @@
         growing="true"
         value="{homeViewModel>/response}"
         width="100%"/>
+
+      <IconTabBar
+				id="iconTabBar"
+				class="sapUiResponsiveContentPadding"
+        select="onSelectedTab"
+        selectedKey="{homeViewModel>/selectedTabKey}"
+        expandable="false">
+        <items>
+          <!-- Read -->
+          <IconTabFilter
+            id="iconTabBarFilterRead"
+					  text="{i18n>home.iconTabFilterRead}"
+            key="Read">
+            <core:Fragment
+              fragmentName="sapui5.tools.odatavalidator.view.fragment.ReadTab"
+              type="XML"/>
+          </IconTabFilter>
+
+          <!-- Create -->
+          <IconTabFilter
+            id="iconTabBarFilterCreate"
+					  text="{i18n>home.iconTabFilterCreate}"
+            key="Create">
+            <core:Fragment
+              fragmentName="sapui5.tools.odatavalidator.view.fragment.CreateTab"
+              type="XML"/>
+          </IconTabFilter>
+
+          <!-- Update -->
+          <IconTabFilter
+            id="iconTabBarFilterUpdate"
+					  text="{i18n>home.iconTabFilterUpdate}"
+            key="Update">
+            <core:Fragment
+              fragmentName="sapui5.tools.odatavalidator.view.fragment.UpdateTab"
+              type="XML"/>
+          </IconTabFilter>
+
+          <!-- Remove -->
+          <IconTabFilter
+            id="iconTabBarFilterRemove"
+					  text="{i18n>home.iconTabFilterRemove}"
+            key="Remove">
+            <core:Fragment
+              fragmentName="sapui5.tools.odatavalidator.view.fragment.RemoveTab"
+              type="XML"/>
+          </IconTabFilter>
+        </items>
+      </IconTabBar>
+
     </content>
       
     <footer>
